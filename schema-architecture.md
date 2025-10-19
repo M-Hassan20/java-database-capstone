@@ -80,7 +80,7 @@ The controller receives user requests and passes them to the model, which fetche
     "name": "Walgreens SF",
     "location": "Market Street"
   }
-}
+}```
 
   ### Collection: Logs
 
@@ -91,7 +91,7 @@ The controller receives user requests and passes them to the model, which fetche
   "user_id": "456",
   "action": "Prescription created",
   "details": "Doctor 123 issued a new prescription for Patient 456"
-}
+}```
 
   ### Collection: Feedback
 
@@ -104,4 +104,4 @@ The controller receives user requests and passes them to the model, which fetche
   "rating": 4,
   "comments": "Doctor was very kind and explained the treatment well.",
   "submitted_at": "2025-10-18T14:20:00Z"
-}
+}```
