@@ -82,7 +82,7 @@ The controller receives user requests and passes them to the model, which fetche
   }
 }```
 
-  ### Collection: Logs
+### Collection: Logs
 
 ```json
 {
@@ -93,7 +93,7 @@ The controller receives user requests and passes them to the model, which fetche
   "details": "Doctor 123 issued a new prescription for Patient 456"
 }```
 
-  ### Collection: Feedback
+### Collection: Feedback
 
 ```json
 {
