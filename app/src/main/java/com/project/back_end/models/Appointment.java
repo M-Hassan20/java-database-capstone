@@ -13,10 +13,10 @@ public class Appointment {
 
     public Appointment() {
     }
-    public Appointment(long id, Doctor doctor, Patient pateint, LocalDateTime appointmentTime, int status) {
+    public Appointment(long id, Doctor doctor, Patient patient, LocalDateTime appointmentTime, int status) {
         this.id = id;
         this.doctor = doctor;
-        this.pateint = pateint;
+        this.patient = patient;
         this.appointmentTime = appointmentTime;
         this.status = status;
     }
@@ -31,7 +31,7 @@ public class Appointment {
 
 @ManyToOne
 @NotNull
-    private Patient pateint;
+    private Patient patient;
 
 @Future(message = "Time must be in future")
     private LocalDateTime appointmentTime;
@@ -70,12 +70,12 @@ public class Appointment {
         this.doctor = doctor;
     }
 
-    public Patient getPateint() {
-        return pateint;
+    public Patient getpatient() {
+        return patient;
     }
 
-    public void setPateint(Patient pateint) {
-        this.pateint = pateint;
+    public void setpatient(Patient patient) {
+        this.patient = patient;
     }
 
     public LocalDateTime getAppointmentTime() {
