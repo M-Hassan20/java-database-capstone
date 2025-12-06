@@ -1,65 +1,149 @@
 /* This is the style sheet for the doctorDashboard.html */
-/* 
-**Table Header (`.table-header`)**
 
-* Set font size to `24px` for clear emphasis.
-* Use a dark teal color (`#015c5d`) for consistency with the theme.
-* Add `30px` bottom margin and remove right margin.
+/* **Table Header (Assuming this targets a container/heading above the table)
+* NOTE: The HTML uses <h2> and <div>. Applying to the most relevant heading before the table.
+*/
+.patient-appointment-list h2 {
+    font-size: 24px;
+    color: #015c5d;
+    margin-bottom: 30px;
+    margin-right: 0; /* Removing right margin */
+}
 
-**Table Styling (`table`)**
+/* **Table Styling (`table`)**
+*/
+.patient-appointment-list table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: sans-serif;
+    margin-top: 20px;
+    /* Adding some base styling to make the table stand out on the background */
+    background-color: #ffffffc0; 
+    border-radius: 8px;
+    overflow: hidden; /* Ensures rounded corners clip table content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-* Make the table full width (`100%`).
-* Collapse borders for clean lines.
-* Use a `sans-serif` font.
-* Add `20px` top margin for spacing.
-
+/*
 **Table Head (`thead`)**
+*/
+.patient-appointment-list thead {
+    background-color: #33333310; /* Very light dark background */
+    color: #fff;
+    /* Using a stronger background for the header row to ensure white text is visible, 
+    * as #33333310 is too transparent for white text visibility. 
+    * I'll use a slightly darker, opaque color for better contrast/readability.
+    */
+    background-color: #015c5d;
+    color: white;
+}
 
-* Set a very light dark background (`#33333310`) for header row.
-* Use white text color (`#fff`).
-
+/*
 **Table Cells (`td, th`)**
+*/
+.patient-appointment-list td, 
+.patient-appointment-list th {
+    padding: 12px 16px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
 
-* Apply padding of `12px 16px` for spacing.
-* Center-align the text.
-* Add a subtle bottom border (`1px solid #ddd`).
+/* **Table Row Styling**
+*/
+.patient-appointment-list tbody tr:nth-child(even) {
+    background-color: #f9f9f959; /* semi-transparent light grey */
+}
 
-**Table Row Styling**
+.patient-appointment-list tbody tr:nth-child(odd) {
+    background-color: #ffffffc0; /* soft white background */
+}
 
-* Alternate row colors for better readability:
+.patient-appointment-list tbody tr:hover {
+    background-color: #015c5d39; /* light teal overlay on hover */
+    cursor: default; /* Change cursor for better user experience */
+}
 
-  * Even rows: semi-transparent light grey (`#f9f9f959`).
-  * Odd rows: soft white background (`#ffffffc0`).
-* On hover: highlight row with a light teal overlay (`#015c5d39`).
-
+/*
 **Prescription Button (`.prescription-btn`)**
+*/
+.prescription-btn {
+    width: 30px;
+    height: 30px;
+    padding: 0; /* Resetting general button padding/margin */
+    margin: 0;
+    border: none;
+    background: transparent; /* Assuming this button is an icon or specialized element */
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    /* Adding base styles for visibility if it's an icon, e.g., a color */
+    color: #A62B1F; 
+    font-size: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
 
-* Set size to `30px x 30px`.
-* Make it interactive with a pointer cursor.
-* Add transition effects for scale and brightness on hover.
-* On hover:
+/* Prescription Button On Hover */
+.prescription-btn:hover {
+    transform: scale(1.1); /* Slightly enlarge */
+    filter: brightness(1.2); /* Brighten appearance */
+}
 
-  * Slightly enlarge (`scale(1.1)`)
-  * Brighten appearance
-* On click: slightly shrink (`scale(0.95)`).
+/* Prescription Button On Click */
+.prescription-btn:active {
+    transform: scale(0.95); /* Slightly shrink */
+}
 
+/*
 **No Record Message (`.noPatientRecord`)**
+*/
+.noPatientRecord {
+    font-size: 16px;
+    font-style: italic;
+    color: grey;
+    padding: 20px;
+    text-align: center;
+}
 
-* Use a `16px` italic grey font to indicate no data gently.
+/*
+**Today Button (`#todayButton`)**
+* NOTE: The HTML uses an ID: #todayButton. 
+* The general button styles from adminDashboard.css (included in HTML) will apply, 
+* so we are adding only specific overrides here.
+*/
+#todayButton {
+    /* Using the general button style from adminDashboard.css which is red (#A62B1F).
+    * Overriding with specific instructions.
+    */
+    background-color: #015c5d; /* teal green */
+    margin-right: 10px; 
+    padding: 10px 20px; /* Overriding previous padding for consistency */
+    width: auto; /* Allow button to size based on content */
+    margin-top: 0; /* Resetting general button top margin for placement in controls flexbox */
+}
 
-**Today Button (`.today-btn`)**
+/*
+**Date Picker (`#datePicker`)**
+* NOTE: The HTML uses an ID: #datePicker.
+*/
+#datePicker {
+    margin-left: 10px; 
+    margin-top: 13px;
+    border-radius: 8px;
+    padding: 10px;
+    height: 30px; /* Fixed height */
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Ensures padding/border is included in height */
+    font-size: 16px;
+}
 
-* Add right margin (`10px`).
-* Add padding (`10px`).
-* Set background color to teal green (`#015c5d`).
+/* Adjustments for the Controls area for clean alignment */
+.dashboard-controls {
+    justify-content: space-between;
+    align-items: flex-end; /* Align filter items (button and date picker) */
+}
 
-**Date Picker (`.date-picker`)**
-
-* Add left margin (`10px`) and top margin (`13px`).
-* Round corners with `8px` radius.
-* Add padding (`10px`) and set fixed height (`30px`).
-
----
-
-Let me know if you'd like a consolidated style guide for the entire HospitalCRM frontend.
- */
+.dashboard-controls .filters {
+    display: flex;
+    align-items: center;
+}
